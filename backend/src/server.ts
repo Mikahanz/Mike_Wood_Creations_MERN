@@ -3,9 +3,13 @@ import dotenv from 'dotenv'
 import morgan from 'morgan'
 import chalk from 'chalk'
 import productsRouter from './routes/product'
+import connectDB from './config/db'
 
 // This allows us to use environment variables
 dotenv.config()
+
+// Connect to MongoDB using Mongoose
+connectDB();
 
 // App express application
 const app: Application = express()

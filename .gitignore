@@ -1,5 +1,9 @@
 backend/node_modules
+backend/dist/data
+backend/src/data
 
+seeder.js
+seeder.ts
 
 backend/.env
 backend/.DS_Store

@@ -8,8 +8,11 @@ const dotenv_1 = __importDefault(require("dotenv"));
 const morgan_1 = __importDefault(require("morgan"));
 const chalk_1 = __importDefault(require("chalk"));
 const product_1 = __importDefault(require("./routes/product"));
+const db_1 = __importDefault(require("./config/db"));
 // This allows us to use environment variables
 dotenv_1.default.config();
+// Connect to MongoDB using Mongoose
+db_1.default();
 // App express application
 const app = express_1.default();
 // Node environment

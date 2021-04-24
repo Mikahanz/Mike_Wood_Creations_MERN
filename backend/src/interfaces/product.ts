@@ -6,16 +6,17 @@ interface IProdImage {
 }
 
 export default interface IProduct extends Document{
-    user_id: mongoose.Schema.Types.ObjectId,
+    userId: mongoose.Types.ObjectId,
     prodName: string,
     prodDescription: string,
     brand: string,
     category: string,
+    prodType: string,
     prodImage: IProdImage[],
     stockQty: number,
     rating: number,
-    reviews: mongoose.Schema.Types.ObjectId[],
+    reviews: mongoose.Types.ObjectId[],
     reviewsQty: number,
     price: number,
-    specialPrice: number
+    specialPrice?: number 
 }

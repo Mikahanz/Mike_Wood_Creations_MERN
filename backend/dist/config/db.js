@@ -5,8 +5,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importDefault(require("mongoose"));
 const chalk_1 = __importDefault(require("chalk"));
-const mongoURI = process.env.MONGO_URI;
 const connectDB = async () => {
+    const mongoURI = await process.env.MONGO_URI;
     try {
         const conn = await mongoose_1.default.connect(mongoURI, {
             useNewUrlParser: true,

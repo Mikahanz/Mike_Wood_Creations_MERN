@@ -48,7 +48,7 @@ const productSchema = new mongoose_1.Schema({
     },
     prodType: {
         type: String,
-        enum: ['watch', 'bowtie', 'sunglasses', 'bag', 'wallet', 'ringbox', 'bracelet', 'cufflinks', 'band', 'other'],
+        enum: ['watch', 'bowtie', 'sunglasses', 'bag', 'wallet', 'ringbox', 'bracelet', 'cufflinks', 'coaster', 'band', 'other'],
         required: 'Product Type is required! Please provide one of the following: watch, bowtie, sunglasses, bag, wallet, ringbox, bracelet, cufflinks, band, or other'
     },
     prodImage: {
@@ -76,5 +76,8 @@ const productSchema = new mongoose_1.Schema({
         type: Number || null,
         default: null
     }
+}, {
+    timestamps: true
 });
-exports.default = mongoose_1.default.model('Product', productSchema);
+const Product = mongoose_1.default.model('Product', productSchema);
+exports.default = Product;

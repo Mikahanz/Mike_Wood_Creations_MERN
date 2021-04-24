@@ -2,7 +2,6 @@ import mongoose, {Schema} from 'mongoose'
 import IProduct from '../interfaces/product'
 
 
-
 const productSchema = new Schema({
     userId: {
         type: mongoose.Schema.Types.ObjectId,
@@ -31,7 +30,7 @@ const productSchema = new Schema({
     },
     prodType: {
         type: String,
-        enum: ['watch','bowtie', 'sunglasses', 'bag', 'wallet', 'ringbox', 'bracelet', 'cufflinks', 'band', 'other'],
+        enum: ['watch','bowtie', 'sunglasses', 'bag', 'wallet', 'ringbox', 'bracelet', 'cufflinks', 'coaster', 'band', 'other'],
         required: 'Product Type is required! Please provide one of the following: watch, bowtie, sunglasses, bag, wallet, ringbox, bracelet, cufflinks, band, or other'
     },
     prodImage: {
@@ -59,6 +58,11 @@ const productSchema = new Schema({
         type: Number || null,
         default: null
     }
+},
+{
+    timestamps: true
 })
 
-export default mongoose.model<IProduct>('Product', productSchema)
+const Product = mongoose.model<IProduct>('Product', productSchema)
+
+export default Product

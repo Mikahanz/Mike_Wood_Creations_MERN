@@ -1,9 +1,8 @@
 import mongoose from 'mongoose'
 import chalk from 'chalk'
 
-const mongoURI: string = process.env.MONGO_URI!
-
 const connectDB = async () => {
+    const mongoURI: string = await process.env.MONGO_URI!
     try {
         const conn = await mongoose.connect(mongoURI, {
             useNewUrlParser: true,
@@ -17,6 +16,8 @@ const connectDB = async () => {
         console.error(chalk.redBright.bold.underline(`Error: ${error.message}`));
     process.exit(1);
     }
+
+    
 }
 
 export default connectDB
