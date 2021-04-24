@@ -7,7 +7,7 @@ const express_1 = __importDefault(require("express"));
 const dotenv_1 = __importDefault(require("dotenv"));
 const morgan_1 = __importDefault(require("morgan"));
 const chalk_1 = __importDefault(require("chalk"));
-const products_1 = __importDefault(require("./routes/products"));
+const product_1 = __importDefault(require("./routes/product"));
 // This allows us to use environment variables
 dotenv_1.default.config();
 // App express application
@@ -21,7 +21,7 @@ if (nodeEnv === 'development') {
 app.use(express_1.default.json());
 //? Routes starts here-------------------------------
 // Product Routes
-app.use('/api/v1/products', products_1.default);
+app.use('/api/v1/products', product_1.default);
 //? Routes ends here---------------------------------
 //todo ----------------------------------------------
 const PORT = process.env.PORT || 5000;

@@ -2,7 +2,7 @@ import express, {Application} from 'express'
 import dotenv from 'dotenv'
 import morgan from 'morgan'
 import chalk from 'chalk'
-import productsRouter from './routes/products'
+import productsRouter from './routes/product'
 
 // This allows us to use environment variables
 dotenv.config()
