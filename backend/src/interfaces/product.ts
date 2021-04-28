@@ -1,12 +1,14 @@
 import mongoose, {Document} from 'mongoose'
 
 interface IProdImage {
-    id: string,
+    imgId: string,
     image: string
 }
 
 export default interface IProduct extends Document{
     userId: mongoose.Types.ObjectId,
+    sku: string,
+    barcode?: string,   // Optional
     prodName: string,
     prodDescription: string,
     brand: string,
@@ -17,6 +19,8 @@ export default interface IProduct extends Document{
     rating: number,
     reviews: mongoose.Types.ObjectId[],
     reviewsQty: number,
+    variants?: [] // Optional
+    originalPrice?: number, // Optional
     price: number,
-    specialPrice?: number 
+    specialPrice?: number   // Optional
 }

@@ -26,6 +26,15 @@ const productSchema = new mongoose_1.Schema({
         required: 'UserId is required!',
         ref: 'User'
     },
+    sku: {
+        type: String,
+        required: 'SKU is required',
+        trim: true
+    },
+    barcode: {
+        type: String,
+        trim: true
+    },
     prodName: {
         type: String,
         required: 'Product name is required!',
@@ -48,11 +57,11 @@ const productSchema = new mongoose_1.Schema({
     },
     prodType: {
         type: String,
-        enum: ['watch', 'bowtie', 'sunglasses', 'bag', 'wallet', 'ringbox', 'bracelet', 'cufflinks', 'coaster', 'band', 'other'],
+        enum: ['watch', 'bowtie', 'sunglasses', 'bag', 'wallet', 'ringbox', 'bracelet', 'cufflinks', 'coaster', 'band', 'case', 'other'],
         required: 'Product Type is required! Please provide one of the following: watch, bowtie, sunglasses, bag, wallet, ringbox, bracelet, cufflinks, band, or other'
     },
     prodImage: {
-        type: [{ id: String, image: String }],
+        type: [{ imgId: String, image: String }],
         required: 'Image is required!'
     },
     stockQty: {
@@ -68,13 +77,18 @@ const productSchema = new mongoose_1.Schema({
     reviewsQty: {
         type: Number
     },
+    variants: {
+        type: []
+    },
+    originalPrice: {
+        type: Number,
+    },
     price: {
         type: Number,
         required: 'Price is required!'
     },
     specialPrice: {
-        type: Number || null,
-        default: null
+        type: Number,
     }
 }, {
     timestamps: true
