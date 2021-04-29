@@ -9,6 +9,7 @@ const morgan_1 = __importDefault(require("morgan"));
 const chalk_1 = __importDefault(require("chalk"));
 const product_1 = __importDefault(require("./routes/product"));
 const db_1 = __importDefault(require("./config/db"));
+const errorHandler_1 = require("./middlewares/errorHandler");
 // This allows us to use environment variables
 dotenv_1.default.config();
 // Connect to MongoDB using Mongoose
@@ -26,6 +27,9 @@ app.use(express_1.default.json());
 // Product Routes
 app.use('/api/v1/products', product_1.default);
 //? Routes ends here---------------------------------
+// Error Handling
+app.use(errorHandler_1.notFoundError);
+app.use(errorHandler_1.allErrorsHandler);
 //todo ----------------------------------------------
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => { console.log(chalk_1.default.magenta.bold(`Node Server Running On Port ${PORT}, In '${nodeEnv}' Mode`)); });

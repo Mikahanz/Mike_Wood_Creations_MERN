@@ -4,6 +4,7 @@ import morgan from 'morgan'
 import chalk from 'chalk'
 import productsRouter from './routes/product'
 import connectDB from './config/db'
+import {notFoundError, allErrorsHandler} from './middlewares/errorHandler'
 
 // This allows us to use environment variables
 dotenv.config()
@@ -28,7 +29,12 @@ app.use(express.json());
 // Product Routes
 app.use('/api/v1/products', productsRouter)
 
+
 //? Routes ends here---------------------------------
+
+// Error Handling
+app.use(notFoundError)
+app.use(allErrorsHandler)
 
 //todo ----------------------------------------------
 const PORT = process.env.PORT || 5000
