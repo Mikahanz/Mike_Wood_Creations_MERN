@@ -22,5 +22,6 @@ export default interface IProduct extends Document{
     variants?: [] // Optional
     originalPrice?: number, // Optional
     price: number,
-    specialPrice?: number   // Optional
+    specialPrice?: number,   // Optional
+    personalizable?: boolean    // Optional
 }

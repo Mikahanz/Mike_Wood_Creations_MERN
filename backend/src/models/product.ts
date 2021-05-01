@@ -71,6 +71,10 @@ const productSchema = new Schema({
     },
     specialPrice:{
         type: Number,
+    },
+    personalizable :{
+        type: Boolean,
+        default: true,
     }
 },
 {
