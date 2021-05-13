@@ -1,5 +1,5 @@
-import mongoose, {Schema} from 'mongoose'
-import IProduct from '../interfaces/product'
+import mongoose, {Schema} from 'mongoose';
+import IProduct from '../interfaces/product';
 
 
 const productSchema = new Schema({
@@ -72,15 +72,20 @@ const productSchema = new Schema({
     specialPrice:{
         type: Number,
     },
-    personalizable :{
+    statusActive: {
         type: Boolean,
-        default: true,
+        default: true
+    },
+    personalizable:{
+        type: Boolean,
+        default: true
     }
+    
 },
 {
     timestamps: true
-})
+});
 
-const Product = mongoose.model<IProduct>('Product', productSchema)
+const Product = mongoose.model<IProduct>('Product', productSchema);
 
-export default Product
+export default Product;

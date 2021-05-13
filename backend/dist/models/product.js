@@ -90,9 +90,13 @@ const productSchema = new mongoose_1.Schema({
     specialPrice: {
         type: Number,
     },
+    statusActive: {
+        type: Boolean,
+        default: true
+    },
     personalizable: {
         type: Boolean,
-        default: true,
+        default: true
     }
 }, {
     timestamps: true

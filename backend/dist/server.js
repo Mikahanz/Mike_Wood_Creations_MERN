@@ -7,6 +7,7 @@ const express_1 = __importDefault(require("express"));
 const dotenv_1 = __importDefault(require("dotenv"));
 const morgan_1 = __importDefault(require("morgan"));
 const chalk_1 = __importDefault(require("chalk"));
+const cors_1 = __importDefault(require("cors"));
 const product_1 = __importDefault(require("./routes/product"));
 const db_1 = __importDefault(require("./config/db"));
 const errorHandler_1 = require("./middlewares/errorHandler");
@@ -23,6 +24,8 @@ if (nodeEnv === 'development') {
 }
 // This will allow accept json data in the body from the request
 app.use(express_1.default.json());
+// Enable CORS
+app.use(cors_1.default());
 //? Routes starts here-------------------------------
 // Product Routes
 app.use('/api/v1/products', product_1.default);
@@ -32,4 +35,6 @@ app.use(errorHandler_1.notFoundError);
 app.use(errorHandler_1.allErrorsHandler);
 //todo ----------------------------------------------
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => { console.log(chalk_1.default.magenta.bold(`Node Server Running On Port ${PORT}, In '${nodeEnv}' Mode`)); });
+app.listen(PORT, () => {
+    console.log(chalk_1.default.magenta.bold(`Node Server Running On Port ${PORT}, In '${nodeEnv}' Mode`));
+});
