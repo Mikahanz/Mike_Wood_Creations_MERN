@@ -1,33 +1,36 @@
-import React from 'react';
-import { getProducts } from '../utils/getData';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { listProducts } from '../actions/productActions';
+import { RootStore } from '../store';
+import Spinner from '../components/Spinner';
+import ProductItems from '../components/ProductItems';
 
 const Homepage: React.FC = () => {
-  getProducts();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(listProducts());
+  }, [dispatch]);
+
+  const productListState = useSelector((state: RootStore) => state.productList);
+  const { loading, products } = productListState;
 
   return (
-    <section className='section-content padding-y bg'>
-      <div className='container'>
-        <article className='text-muted'>
-          <br />
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum
-            dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat. Duis aute irure dolor in reprehenderit in
-            voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-            officia deserunt mollit anim id est laborum{' '}
-          </p>
-        </article>
-      </div>
-    </section>
+    <>
+      {loading ? (
+        <Spinner />
+      ) : (
+        <div className='container mt-4'>
+          <div className='row'>
+            {products?.map((product) => (
+              <div key={product._id} className='col-md-3 col-sm-6'>
+                <ProductItems product={product} />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 
