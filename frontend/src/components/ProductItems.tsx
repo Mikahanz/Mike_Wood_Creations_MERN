@@ -1,5 +1,6 @@
 import React from 'react';
 import { productListType } from '../action_types/prodListActionTypes';
+import RatingStar from './RatingStar';
 
 interface productListProps {
   product: productListType;
@@ -8,8 +9,7 @@ interface productListProps {
 const ProductItems: React.FC<productListProps> = (props) => {
   //   console.log(props.product);
 
-  const { prodImage, prodName, prodDescription, price, _id } = props.product;
-  console.log(_id);
+  const { prodImage, prodName, price } = props.product;
 
   return (
     <figure className='card card-product-grid'>
@@ -28,7 +28,9 @@ const ProductItems: React.FC<productListProps> = (props) => {
         <a href='#/' className='title'>
           {prodName}
         </a>
-        <div className='price mt-2'>${price}</div>
+        <hr />
+        <RatingStar />
+        <div className='price mt-4 text-center'>${price}</div>
       </figcaption>
     </figure>
   );
