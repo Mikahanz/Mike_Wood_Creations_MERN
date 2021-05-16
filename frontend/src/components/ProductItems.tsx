@@ -4,6 +4,7 @@ import RatingStar from './RatingStar';
 
 interface productListProps {
   product: productListType;
+  currency: string;
 }
 
 const ProductItems: React.FC<productListProps> = (props) => {
@@ -30,7 +31,9 @@ const ProductItems: React.FC<productListProps> = (props) => {
         </a>
         <hr />
         <RatingStar rating={rating} reviewQty={reviewsQty} />
-        <div className='price mt-4 text-center'>${price}</div>
+        <div className='price mt-2'>
+          ${price} {props.currency}
+        </div>
       </figcaption>
     </figure>
   );

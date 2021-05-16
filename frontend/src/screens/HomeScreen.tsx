@@ -4,9 +4,14 @@ import { listProducts } from '../actions/productActions';
 import { RootStore } from '../store';
 import Spinner from '../components/Spinner';
 import ProductItems from '../components/ProductItems';
+import IntroMainSection from '../components/IntroMainSection';
+import ProductSectHeading from '../components/ProductSectHeading';
+import Pagination from '../components/Pagination';
 
 const Homepage: React.FC = () => {
   const dispatch = useDispatch();
+
+  const defaultCurrency = 'CAD';
 
   useEffect(() => {
     dispatch(listProducts());
@@ -17,17 +22,20 @@ const Homepage: React.FC = () => {
 
   return (
     <>
+      <IntroMainSection />
       {loading ? (
         <Spinner />
       ) : (
-        <div className='container mt-4'>
-          <div className='row'>
+        <div className='container mt-3'>
+          <ProductSectHeading />
+          <div className='row mt-3'>
             {products?.map((product) => (
               <div key={product._id} className='col-md-3 col-sm-6'>
-                <ProductItems product={product} />
+                <ProductItems product={product} currency={defaultCurrency} />
               </div>
             ))}
           </div>
+          <Pagination />
         </div>
       )}
     </>

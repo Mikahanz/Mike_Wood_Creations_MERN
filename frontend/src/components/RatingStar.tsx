@@ -18,7 +18,7 @@ const RatingStar: React.FC<ratingProps> = (props) => {
   const unactiveNumStarArr = arrOfNum(unactiveNumStar);
 
   return (
-    <div className='text-center'>
+    <div>
       {numArray.map((n) => (
         <i className='fa fa-star' style={styleColor} key={n.toString()}></i>
       ))}
