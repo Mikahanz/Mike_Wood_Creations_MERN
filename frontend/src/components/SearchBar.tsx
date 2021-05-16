@@ -17,7 +17,7 @@ const SearchBar: React.FC = () => {
                           <option value="content">Latest</option>
                         </select> */}
           <div className='input-group-append'>
-            <button className='btn btn-light' type='submit'>
+            <button className='btn btn-outline-secondary' type='submit'>
               <i className='fa fa-search'></i>
             </button>
           </div>

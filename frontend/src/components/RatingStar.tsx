@@ -8,7 +8,7 @@ interface ratingProps {
 const RatingStar: React.FC<ratingProps> = (props) => {
   const num = props.rating;
   const evenNum = Math.floor((num * 10) / 10);
-  console.log(num);
+  //console.log(num);
 
   const numArray = arrOfNum(evenNum);
 
@@ -28,7 +28,12 @@ const RatingStar: React.FC<ratingProps> = (props) => {
       {unactiveNumStarArr.map((n) => (
         <i className='far fa-star' key={n.toString()}></i>
       ))}
-      <span style={styleColor}> ({props.reviewQty})</span>
+      <span style={styleColor}>
+        {' '}
+        <small className='label-rating text-muted'>
+          ({props.reviewQty} reviews)
+        </small>
+      </span>
     </div>
   );
 };

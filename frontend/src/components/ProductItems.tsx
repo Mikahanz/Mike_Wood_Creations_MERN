@@ -1,16 +1,17 @@
 import React from 'react';
-import { productListType } from '../action_types/prodListActionTypes';
+import { Link } from 'react-router-dom';
+import { productDataType } from '../utils/dataTypes';
 import RatingStar from './RatingStar';
 
 interface productListProps {
-  product: productListType;
+  product: productDataType;
   currency: string;
 }
 
 const ProductItems: React.FC<productListProps> = (props) => {
   //   console.log(props.product);
 
-  const { prodImage, prodName, price, rating, reviewsQty } = props.product;
+  const { _id, prodImage, prodName, price, rating, reviewsQty } = props.product;
 
   return (
     <figure className='card card-product-grid'>
@@ -26,9 +27,9 @@ const ProductItems: React.FC<productListProps> = (props) => {
         </a>
       </div>
       <figcaption className='info-wrap border-top'>
-        <a href='#/' className='title'>
+        <Link to={`/productdetail/${_id}`} className='title'>
           {prodName}
-        </a>
+        </Link>
         <hr />
         <RatingStar rating={rating} reviewQty={reviewsQty} />
         <div className='price mt-2'>

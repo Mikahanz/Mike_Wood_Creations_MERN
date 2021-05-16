@@ -1,12 +1,19 @@
-import { productListType } from '../action_types/prodListActionTypes';
+import { productDataType } from '../utils/dataTypes';
 
-export interface IproductList {
+// export interface IproductList {
+//   loading: boolean;
+//   products: productDataType[];
+//   error: string;
+// }
+
+export interface IProductListDefaultState {
   loading: boolean;
-  products: productListType[];
-  error: string;
+  products?: productDataType[];
+  errorMsg?: string;
 }
 
-export interface IDefaultState {
+export interface IProductDetailDefaultState {
   loading: boolean;
-  products?: productListType[];
+  product?: productDataType;
+  errorMsg?: string;
 }

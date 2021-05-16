@@ -103,7 +103,7 @@ const Test: React.FC = () => {
         <div className='container'>
           <div className='row align-items-center'>
             <div className='col-lg-3 col-sm-4 col-12'>
-              <a href='http://bootstrap-ecommerce.com' className='brand-wrap'>
+              <a href='/' className='brand-wrap'>
                 <img className='logo' src='../images/mwc-logo.png' alt='logo' />
               </a>
             </div>
