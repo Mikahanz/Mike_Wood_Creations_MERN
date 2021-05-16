@@ -1,9 +1,14 @@
 import React from 'react';
 
-const RatingStar: React.FC = () => {
-  const num = 4;
+interface ratingProps {
+  rating: number;
+  reviewQty: number;
+}
+
+const RatingStar: React.FC<ratingProps> = (props) => {
+  const num = props.rating;
   const evenNum = Math.floor((num * 10) / 10);
-  console.log(evenNum);
+  console.log(num);
 
   const numArray = arrOfNum(evenNum);
 
@@ -21,8 +26,9 @@ const RatingStar: React.FC = () => {
         <i className='fa fa-star-half-alt' style={styleColor}></i>
       )}
       {unactiveNumStarArr.map((n) => (
-        <i className='far fa-star'></i>
+        <i className='far fa-star' key={n.toString()}></i>
       ))}
+      <span style={styleColor}> ({props.reviewQty})</span>
     </div>
   );
 };
@@ -42,7 +48,8 @@ const arrOfNum = (num: number): Number[] => {
 };
 
 const styleColor = {
-  color: '#FF7400',
+  color: '#53565c',
+  //   color: '#FF7400',
 };
 
 export default RatingStar;

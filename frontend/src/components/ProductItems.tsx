@@ -9,7 +9,7 @@ interface productListProps {
 const ProductItems: React.FC<productListProps> = (props) => {
   //   console.log(props.product);
 
-  const { prodImage, prodName, price } = props.product;
+  const { prodImage, prodName, price, rating, reviewsQty } = props.product;
 
   return (
     <figure className='card card-product-grid'>
@@ -29,7 +29,7 @@ const ProductItems: React.FC<productListProps> = (props) => {
           {prodName}
         </a>
         <hr />
-        <RatingStar />
+        <RatingStar rating={rating} reviewQty={reviewsQty} />
         <div className='price mt-4 text-center'>${price}</div>
       </figcaption>
     </figure>
