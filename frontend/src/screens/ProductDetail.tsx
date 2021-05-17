@@ -24,7 +24,7 @@ const ProductDetail: React.FC<RouteComponentProps<RouteParams>> = ({
     dispatch(getProductDetail(match.params.id));
   }, [dispatch, match.params.id]);
 
-  console.log(product?.prodName);
+  //console.log(product?.prodName);
 
   return (
     <>
@@ -36,11 +36,13 @@ const ProductDetail: React.FC<RouteComponentProps<RouteParams>> = ({
             <div className='row no-gutters'>
               <aside className='col-md-6'>
                 <article className='gallery-wrap'>
-                  <div className='img-big-wrap'>
+                  <div className='img-big-wrap mt-3'>
                     <a href='#/'>
                       <img
+                        className='img-fluid'
                         src={product?.prodImage[0].image}
                         alt='imagemissing'
+                        style={{ maxWidth: '100%', height: 'auto' }}
                       />
                     </a>
                   </div>

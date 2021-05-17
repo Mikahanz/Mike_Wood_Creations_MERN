@@ -57,7 +57,6 @@ export const productDetailReducer = (
         loading: true,
       };
     case PRODUCT_DETAIL_SUCCESS:
-      console.log(action.payload);
       return {
         loading: false,
         product: action.payload.data,

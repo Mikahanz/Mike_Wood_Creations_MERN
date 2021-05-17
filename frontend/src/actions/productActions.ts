@@ -34,7 +34,7 @@ export const getProductDetail =
 
       const res = await axios.get(`/api/v1/products/${id}`);
 
-      console.log(res);
+      //console.log(res);
 
       dispatch({ type: PRODUCT_DETAIL_SUCCESS, payload: res });
     } catch (error) {
