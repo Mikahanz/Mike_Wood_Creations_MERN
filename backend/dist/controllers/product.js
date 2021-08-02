@@ -22,3 +22,4 @@ const getProductById = async (req, res, next) => {
     }
 };
 exports.getProductById = getProductById;
+//# sourceMappingURL=product.js.map

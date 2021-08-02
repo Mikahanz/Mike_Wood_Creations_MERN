@@ -15,17 +15,21 @@ const notFoundError = (req, res, next) => {
 exports.notFoundError = notFoundError;
 const allErrorsHandler = (err, req, res, next) => {
     var _a;
-    console.log(chalk_1.default.hex('#FFA500').underline(`${err.name}!`));
+    console.log(chalk_1.default.hex('#FFA500').underline(`${err.name}!!!`));
+    // Copying err to error
     let error = { ...err };
+    // Add message to error.message
     error.message = err.message;
+    // This Handle Casting objectId error
     if (err.name === 'CastError') {
         error = new errorResponse_1.default(`Resource Not Found!`, 404);
     }
     // Response to client
     res.status((_a = error.statusCode) !== null && _a !== void 0 ? _a : 500).json({
         message: error.message,
-        stack: process.env.NODE_ENV === 'production' ? null : error.stack
+        stack: process.env.NODE_ENV === 'production' ? null : error.stack,
     });
     next();
 };
 exports.allErrorsHandler = allErrorsHandler;
+//# sourceMappingURL=errorHandler.js.map

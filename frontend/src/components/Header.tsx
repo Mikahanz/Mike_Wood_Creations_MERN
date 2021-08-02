@@ -1,7 +1,7 @@
 import React from 'react';
 import SearchBar from './SearchBar';
 
-const Test: React.FC = () => {
+const Header: React.FC = () => {
   return (
     <header className='section-header'>
       <section className='header-top-light border-bottom'>
@@ -253,4 +253,4 @@ const Test: React.FC = () => {
   );
 };
 
-export default Test;
+export default Header;

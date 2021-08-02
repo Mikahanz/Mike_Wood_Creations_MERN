@@ -1,5 +1,5 @@
-import express, {Router} from 'express';
-import {getProducts, getProductById} from '../controllers/product';
+import express, { Router } from 'express';
+import { getProducts, getProductById } from '../controllers/product';
 
 const router: Router = express.Router();
 
@@ -9,9 +9,8 @@ const router: Router = express.Router();
 router.route('/').get(getProducts);
 
 // @route GET /api/v1/products/:id
-router.route('/:id').get(getProductById)
+router.route('/:id').get(getProductById);
 
-// Routes Ends Here ----------------
-
+// Routes Ends Here ------------------
 
 export default router;

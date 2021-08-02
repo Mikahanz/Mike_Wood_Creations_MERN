@@ -11,5 +11,6 @@ const router = express_1.default.Router();
 router.route('/').get(product_1.getProducts);
 // @route GET /api/v1/products/:id
 router.route('/:id').get(product_1.getProductById);
-// Routes Ends Here ----------------
+// Routes Ends Here ------------------
 exports.default = router;
+//# sourceMappingURL=product.js.map

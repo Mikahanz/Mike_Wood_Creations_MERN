@@ -103,3 +103,4 @@ const productSchema = new mongoose_1.Schema({
 });
 const Product = mongoose_1.default.model('Product', productSchema);
 exports.default = Product;
+//# sourceMappingURL=product.js.map

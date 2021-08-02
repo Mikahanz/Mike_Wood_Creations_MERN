@@ -38,3 +38,4 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(chalk_1.default.magenta.bold(`Node Server Running On Port ${PORT}, In '${nodeEnv}' Mode`));
 });
+//# sourceMappingURL=server.js.map
